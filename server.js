@@ -5,11 +5,11 @@ const app = exp();
 //import mongodb module
 const mc = require("mongodb").MongoClient;
 
-//import dotenv module
-require("dotenv").config();
-
 //import path module
 const path = require("path");
+
+//import dotenv module
+require("dotenv").config();
 
 //import API objects
 //userAPIObj
@@ -21,6 +21,9 @@ const adminApiObj = require("./APIs/adminApi");
 //productApiObj
 const productApiObj = require("./APIs/productApi");
 
+//cardApiObj
+const cardApiObj = require("./APIs/cardApi");
+
 //forward the api objects
 //forward userApiObj
 app.use("/user",userApiObj);
@@ -30,6 +33,9 @@ app.use("/admin",adminApiObj);
 
 //forward productApiObj
 app.use("/product",productApiObj);
+
+//forward cardApiObj
+app.use("/card",cardApiObj);
 
 //connect both backend and frontend
 app.use(exp.static(path.join(__dirname,"./dist/ecommerceApp")));
@@ -44,14 +50,16 @@ mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
     const databaseObject = client.db("Ecommerce");
 
     //get APICollectionObjects
-    const userCollectionObject = databaseObject.collection("userCollection");
-    const adminCollectionObject = databaseObject.collection("adminCollection");
-    const productCollectionObject = databaseObject.collection("productCollection");
+    const userCollectionObject = databaseObject.collection("usercollection");
+    const adminCollectionObject = databaseObject.collection("admincollection");
+    const productCollectionObject = databaseObject.collection("productcollection");
+    const cardCollectionObject = databaseObject.collection("cardcollection");
 
     //share apiObjects
     app.set("userCollectionObject",userCollectionObject)
     app.set("adminCollectionObject",adminCollectionObject)
     app.set("productCollectionObject",productCollectionObject)
+    app.set("cardCollectionObject",cardCollectionObject)
 
     console.log("Connected to db server..")
 })

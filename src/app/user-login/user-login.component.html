@@ -1,0 +1,52 @@
+<!-- <div style="background-image:url('./assets/admindashboardbackground.jpg')"> -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <p class="display-5 mt-5 text-center text-primary">Welcome back,</p>
+        <div class="card mt-3" style="background-color:darkslategrey;color:whitesmoke;">
+          <div class="card-body">
+            <!-- Login Form -->
+            <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+              <!-- radio -->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="usertype" id="inlineRadio1" value="user" ngModel>
+                <label class="form-check-label" for="inlineRadio1">User</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="usertype" id="inlineRadio2" value="admin" ngModel>
+                <label class="form-check-label" for="inlineRadio2">Admin</label>
+              </div>
+              <br><br>
+              <div class="form-group">
+                <label for="inputAddress" class="form-label">Username</label>
+                <input type="text" class="form-control" id="inputAddress" autocomplete="off" name="username" ngModel>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" autocomplete="off" name="password" ngModel>
+              </div>
+
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
+              </div>
+
+              <!-- Forgot password -->
+              <div class="col-12 text-center mt-3">
+                <a routerLink="resetpassword" (click)="forgetPassword()">Forgot password?</a>
+              </div>
+
+              <!-- New user create new Account -->
+              <p class="text-center mt-3">Don't have an account?</p>
+              <div class="col-12 text-center mt-3">
+                <button type="submit" class="btn btn-warning " (click)="register()">Create account here</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+<!-- </div> -->

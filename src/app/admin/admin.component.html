@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <ul class="navbar-nav me mt-2 mb-2 mb-lg-0">
+      <li class="nav-item ">
+        <button class="btn btn-success"> <a class="nav-link active" routerLink="addproduct" routerLinkActive="active"
+            style="color:whitesmoke;"><i class="fa fa-cart-plus" style="font-size: 15px;"></i> Add product</a></button>
+        <!-- <button class="btn btn-success" (click)="addproduct()">Add Product</button> -->
+      </li>&nbsp;&nbsp;
+      <li class="nav-item ">
+        <button class="btn btn-success"><a class="nav-link" routerLink="viewproducts" routerLinkActive="active"
+            style="color:whitesmoke;">View
+            products</a></button>
+        <!-- <button class="btn btn-success" (click)="viewproducts()">View products</button> -->
+      </li>
+      <li class="nav-item me-2 mt-1"  style="display: flex;flex-direction: column-reverse;justify-content: right;">
+        <button class="btn text-secondary" (click)="logout()"
+         ><i
+          class="fa fa-power-off" style="font-size: 30px;float:right;"></i></button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

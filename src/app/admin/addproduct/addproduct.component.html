@@ -1,0 +1,75 @@
+
+<p class="display-6 text-secondary text-center mt-3">Adding product</p>
+<div class="container-fluid">
+    <div class="col-3"></div>
+    <div class="col-6 ">
+        <form class="mt-5 bg-light p-3 form" #formRef="ngForm" (ngSubmit)="formRef.form.valid&&onSubmit(formRef)">
+
+            <!-- name -->
+            <div class="form-group">
+                <label for="inputname" class="form-label">Product name</label>
+                <input type="text" class="form-control" id="inputname" name="name" ngModel required #name="ngModel">
+                <!-- validation for name -->
+                <span class="text-danger" *ngIf="(name.touched || formRef.submitted) && name.errors?.required">
+                    name is required
+                </span>
+            </div>
+
+            <!-- Product no -->
+            <div class="form-group">
+                <label for="inputname2" class="form-label">Product number</label>
+                <input type="text" class="form-control" id="inputname2" placeholder="This should be Unique" name="pno"
+                    ngModel required #pno="ngModel">
+                <!-- Validation for product id -->
+                <span class="text-danger" *ngIf="(pno.touched || formRef.submitted) && pno.errors?.required">
+                    Product Number is required
+                </span>
+            </div>
+            <!-- product description -->
+            <div class="form-group">
+                <label for="inputname1" class="form-label">Product Description</label>
+                <input type="text" class="form-control" id="inputname1" name="desc" ngModel required #desc="ngModel">
+            </div>
+
+            <!-- size-->
+            <div class="form-group">
+                <label for="inputSize" class="form-label">Size</label>
+                <select id="inputSize" class="form-select" name="size" ngModel required #size="ngModel">
+                    <option selected>Choose...</option>
+                    <option value="small">small</option>
+                    <option value="middle">middle</option>
+                    <option value="large">large</option>
+                    <option value="extra large">extra large</option>
+                </select>
+                <!-- validation for size-->
+                <span class="text-danger" *ngIf="(size.touched || formRef.submitted) && size.errors?.required">
+                    size is required
+                </span>
+            </div>
+
+            <!-- Product brand -->
+            <div class="form-group">
+                <label for="inputname1" class="form-label">Brand</label>
+                <input type="text" class="form-control" id="inputname1" name="brand" ngModel required #brand="ngModel">
+            </div>
+
+            <!-- product price -->
+            <div class="form-group">
+                <label for="inputname12" class="form-label">Price</label>
+                <input type="number" class="form-control" id="inputname12" name="price" ngModel required
+                    #price="ngModel">
+            </div>
+
+            <!--photo-->
+            <div class="form-group pt-4">
+                <input type="file" class="form-control" (change)="incomingfile($event)" name="photo" accept='image/*'
+                    placeholder="Upload file">
+            </div>
+
+            <div class="col-12 pt-4 text-center">
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
